@@ -262,7 +262,9 @@ static struct xtables_target daddr_tg_reg[] = {
 	},
 };
 
-void _init(void)
+
+__attribute__((constructor))
+static void daddr_tg_init(void)
 {
 	xtables_register_targets(daddr_tg_reg, ARRAY_SIZE(daddr_tg_reg));
 }
